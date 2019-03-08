@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:chedraui_flutter/utils/HexValueConverter.dart';
 import 'package:chedraui_flutter/widgets/logo_widget.dart';
+import 'package:chedraui_flutter/widgets/gradient_button.dart';
 
 class LoginView extends StatefulWidget {
   final Widget child;
@@ -16,7 +17,7 @@ class _LoginViewState extends State<LoginView> {
   final _rowTextFieldUser = 1;
   final _rowTextFieldsPass = 1;
   final _rowTextFieldsFingerPrint = 1;
-  final _rowTextFieldsButtonLogin = 1;
+  final _rowTextFieldsButtonLogin = 2;
   final _rowTextFieldsBottomItems = 4;
   Color bgGradienttop = HexColor('#0897FF');
   Color bgGradientBottom = HexColor('#0064FF');
@@ -101,7 +102,7 @@ class _LoginViewState extends State<LoginView> {
                       ),
                       padding: const EdgeInsets.fromLTRB(24.0, 8.0, 24.0, 8.0),
                     ),
-                    flex: _rowTextFieldUser,
+                    flex: _rowTextFieldsPass,
                   ),
                   Expanded(
                     child: new Padding(
@@ -111,7 +112,7 @@ class _LoginViewState extends State<LoginView> {
                           helperText: ' ',
                           labelText: 'Contraseña',
                           icon: const Icon(
-                            Icons.person,
+                            Icons.remove_red_eye,
                             color: Colors.black,
                           ),
                           prefixText: ' ',
@@ -152,22 +153,46 @@ class _LoginViewState extends State<LoginView> {
                   ),
                   Expanded(
                     child: new Padding(
-                      child: new RaisedButton(
-                          key: null,
-                          onPressed: buttonPressed,
-                          color: const Color(0xFFe0e0e0),
-                          child: new Text(
-                            "Acceder",
-                            style: new TextStyle(
-                                fontSize: 13.0,
-                                color: bottomTextColor,
-                                fontWeight: FontWeight.w200,
-                                fontFamily: "Roboto"),
-                          )),
+                      child: new GradientButton(text: "test"),
+                      // child: new InkWell(
+                      //   onTap: () => print('hello'),
+                      //   child: new Container(
+                      //     //width: 100.0,
+                      //     height: 25.0,
+                      //     decoration: new BoxDecoration(
+                      //       color: txbBorderColor,
+                      //       // border:
+                      //       //     new Border.all(color: Colors.white, width: 2.0),
+                      //       borderRadius: new BorderRadius.circular(25.0),
+                      //     ),
+                      //     child: new Center(
+                      //       child: new Text(
+                      //         'Ingresar',
+                      //         style: new TextStyle(
+                      //             fontFamily: "Raleway",
+                      //             fontWeight: FontWeight.w600,
+                      //             fontSize: 28.0,
+                      //             color: bottomTextColor),
+                      //       ),
+                      //     ),
+                      //   ),
+                      // ),
+                      // child: new RaisedButton(
+                      //     key: null,
+                      //     onPressed: buttonPressed,
+                      //     color: const Color(0xFFe0e0e0),
+                      //     child: new Text(
+                      //       "Acceder",
+                      //       style: new TextStyle(
+                      //           fontSize: 13.0,
+                      //           color: bottomTextColor,
+                      //           fontWeight: FontWeight.w200,
+                      //           fontFamily: "Roboto"),
+                      //     )),
                       padding:
-                          const EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 47.0),
+                          const EdgeInsets.fromLTRB(24.0, 10.0, 24.0, 10.0),
                     ),
-                    flex: _rowTextFieldsButtonLogin,
+                    flex: 1,
                   ),
                   Expanded(
                     child: new Row(
@@ -180,8 +205,19 @@ class _LoginViewState extends State<LoginView> {
                               mainAxisSize: MainAxisSize.min,
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: <Widget>[
-                                new Icon(Icons.settings,
-                                    color: bottomTextColor, size: 60.0),
+                                Container(
+                                  child: new Icon(Icons.settings,
+                                      color: bottomTextColor, size: 60.0),
+                                  decoration: BoxDecoration(
+                                    boxShadow: <BoxShadow>[
+                                      BoxShadow(
+                                        color: Colors.black,
+                                        offset: Offset(5.0, 20.0),
+                                        blurRadius: 120.0,
+                                      ),
+                                    ],
+                                  ),
+                                ),
                                 new Text(
                                   "Cuenta",
                                   style: new TextStyle(
@@ -196,8 +232,19 @@ class _LoginViewState extends State<LoginView> {
                               mainAxisSize: MainAxisSize.min,
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: <Widget>[
-                                new Icon(Icons.account_circle,
-                                    color: bottomTextColor, size: 60.0),
+                                Container(
+                                  child: new Icon(Icons.account_circle,
+                                      color: bottomTextColor, size: 60.0),
+                                  decoration: BoxDecoration(
+                                    boxShadow: <BoxShadow>[
+                                      BoxShadow(
+                                        color: Colors.black,
+                                        offset: Offset(5.0, 20.0),
+                                        blurRadius: 120.0,
+                                      ),
+                                    ],
+                                  ),
+                                ),
                                 new Text(
                                   "Invitado",
                                   style: new TextStyle(

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:chedraui_flutter/utils/uidata.dart';
+import 'package:chedraui_flutter/utils/ui_data.dart';
 
 class GradientButton extends StatelessWidget {
   final GestureTapCallback onPressed;
