@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:chedraui_flutter/utils/HexValueConverter.dart';
+import 'package:chedraui_flutter/utils/ui_data.dart';
 import 'package:chedraui_flutter/widgets/logo_widget.dart';
 import 'package:chedraui_flutter/widgets/gradient_button.dart';
+import 'package:chedraui_flutter/widgets/border_textfield.dart';
 
 class LoginView extends StatefulWidget {
   final Widget child;
@@ -19,11 +21,11 @@ class _LoginViewState extends State<LoginView> {
   final _rowTextFieldsFingerPrint = 1;
   final _rowTextFieldsButtonLogin = 2;
   final _rowTextFieldsBottomItems = 4;
-  Color bgGradienttop = HexColor('#0897FF');
-  Color bgGradientBottom = HexColor('#0064FF');
-  Color bottomTextColor = Colors.white;
-  Color txbTextColor = Colors.black;
-  Color txbBorderColor = HexColor('#F28524');
+  // Color bgGradientTopLightBlue = HexColor('#0897FF');
+  // Color bgGradientBottomBlue = HexColor('#0064FF');
+  // Color whiteText = Colors.white;
+  // Color txbBlackText = Colors.black;
+  // Color chedrauiColor = HexColor('#F28524');
 
   ////////////////////////////////  LOCAL VARIABLES  ////////////////////////////////
   @override
@@ -43,8 +45,8 @@ class _LoginViewState extends State<LoginView> {
                   center: Alignment(0, 0),
                   radius: .8,
                   colors: [
-                    bgGradienttop,
-                    bgGradientBottom,
+                    UIData.bgGradientTopLightBlue,
+                    UIData.bgGradientBottomBlue,
                   ],
                   stops: [0.4, 1.0],
                 ),
@@ -61,86 +63,31 @@ class _LoginViewState extends State<LoginView> {
                   Expanded(
                     child: new Padding(
                       child: new LogoChedraui(),
-                      // child: new FlutterLogo(size: 88.0, colors: Colors.blue),
                       padding: const EdgeInsets.all(24.0),
                     ),
                     flex: _rowLogo,
                   ),
                   Expanded(
-                    child: new Padding(
-                      child: new TextFormField(
-                        decoration: new InputDecoration(
-                          hintText: ' ',
-                          helperText: ' ',
-                          labelText: 'E-Mail',
-                          icon: const Icon(
-                            Icons.person,
-                            color: Colors.black,
-                          ),
-                          prefixText: ' ',
-                          suffixText: ' ',
-                          suffixStyle: const TextStyle(color: Colors.black),
-                          fillColor: bottomTextColor,
-                          enabledBorder: new OutlineInputBorder(
-                            borderRadius: new BorderRadius.circular(25.0),
-                            borderSide: new BorderSide(
-                                color: txbBorderColor, width: 2.0),
-                          ),
+                    child: new BorderedTextField(
+                        text: "E-Mail", textObscured: false
+                        // dIcon: const Icon(
+                        //   Icons.accessibility,
+                        //   color: Colors.black,
+                        // ),
                         ),
-                        validator: (val) {
-                          if (val.length == 0) {
-                            return "Email cannot be empty";
-                          } else {
-                            return null;
-                          }
-                        },
-                        keyboardType: TextInputType.emailAddress,
-                        style: new TextStyle(
-                          fontFamily: "Raleway",
-                          fontWeight: FontWeight.w200,
-                        ),
-                      ),
-                      padding: const EdgeInsets.fromLTRB(24.0, 8.0, 24.0, 8.0),
-                    ),
                     flex: _rowTextFieldsPass,
                   ),
                   Expanded(
-                    child: new Padding(
-                      child: new TextFormField(
-                        decoration: new InputDecoration(
-                          hintText: ' ',
-                          helperText: ' ',
-                          labelText: 'Contraseña',
-                          icon: const Icon(
-                            Icons.remove_red_eye,
-                            color: Colors.black,
-                          ),
-                          prefixText: ' ',
-                          suffixText: ' ',
-                          suffixStyle: const TextStyle(color: Colors.black),
-                          fillColor: bottomTextColor,
-                          enabledBorder: new OutlineInputBorder(
-                            borderRadius: new BorderRadius.circular(25.0),
-                            borderSide: new BorderSide(
-                                color: txbBorderColor, width: 2.0),
-                          ),
-                        ),
-                        validator: (val) {
-                          if (val.length == 0) {
-                            return "Email cannot be empty";
-                          } else {
-                            return null;
-                          }
-                        },
-                        keyboardType: TextInputType.emailAddress,
-                        style: new TextStyle(
-                          fontFamily: "Raleway",
-                          fontWeight: FontWeight.w200,
-                        ),
-                      ),
-                      padding: const EdgeInsets.fromLTRB(24.0, 8.0, 24.0, 8.0),
+                    child: new BorderedTextField(
+                      text: "Password",
+                      textObscured: true,
+                      // dIcon: Icon(Icons.visibility),
+                      // dIcon: const Icon(
+                      //   Icons.accessibility,
+                      //   color: Colors.black,
+                      // ),
                     ),
-                    flex: _rowTextFieldUser,
+                    flex: _rowTextFieldsPass,
                   ),
                   Expanded(
                     child: new Padding(
@@ -153,42 +100,8 @@ class _LoginViewState extends State<LoginView> {
                   ),
                   Expanded(
                     child: new Padding(
-                      child: new GradientButton(text: "test"),
-                      // child: new InkWell(
-                      //   onTap: () => print('hello'),
-                      //   child: new Container(
-                      //     //width: 100.0,
-                      //     height: 25.0,
-                      //     decoration: new BoxDecoration(
-                      //       color: txbBorderColor,
-                      //       // border:
-                      //       //     new Border.all(color: Colors.white, width: 2.0),
-                      //       borderRadius: new BorderRadius.circular(25.0),
-                      //     ),
-                      //     child: new Center(
-                      //       child: new Text(
-                      //         'Ingresar',
-                      //         style: new TextStyle(
-                      //             fontFamily: "Raleway",
-                      //             fontWeight: FontWeight.w600,
-                      //             fontSize: 28.0,
-                      //             color: bottomTextColor),
-                      //       ),
-                      //     ),
-                      //   ),
-                      // ),
-                      // child: new RaisedButton(
-                      //     key: null,
-                      //     onPressed: buttonPressed,
-                      //     color: const Color(0xFFe0e0e0),
-                      //     child: new Text(
-                      //       "Acceder",
-                      //       style: new TextStyle(
-                      //           fontSize: 13.0,
-                      //           color: bottomTextColor,
-                      //           fontWeight: FontWeight.w200,
-                      //           fontFamily: "Roboto"),
-                      //     )),
+                      child: new GradientButton(
+                          text: "Ingresar", onPressed: () {}),
                       padding:
                           const EdgeInsets.fromLTRB(24.0, 10.0, 24.0, 10.0),
                     ),
@@ -207,13 +120,13 @@ class _LoginViewState extends State<LoginView> {
                               children: <Widget>[
                                 Container(
                                   child: new Icon(Icons.settings,
-                                      color: bottomTextColor, size: 60.0),
+                                      color: UIData.whiteText, size: 70.0),
                                   decoration: BoxDecoration(
                                     boxShadow: <BoxShadow>[
                                       BoxShadow(
-                                        color: Colors.black,
-                                        offset: Offset(5.0, 20.0),
-                                        blurRadius: 120.0,
+                                        color: Colors.black.withOpacity(0.2),
+                                        offset: Offset(0.0, 20.0),
+                                        blurRadius: 30.0,
                                       ),
                                     ],
                                   ),
@@ -221,10 +134,10 @@ class _LoginViewState extends State<LoginView> {
                                 new Text(
                                   "Cuenta",
                                   style: new TextStyle(
-                                      fontSize: 12.0,
-                                      color: bottomTextColor,
-                                      fontWeight: FontWeight.w200,
-                                      fontFamily: "Roboto"),
+                                    fontSize: 20.0,
+                                    color: UIData.whiteText,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 )
                               ]),
                           new Column(
@@ -234,13 +147,13 @@ class _LoginViewState extends State<LoginView> {
                               children: <Widget>[
                                 Container(
                                   child: new Icon(Icons.account_circle,
-                                      color: bottomTextColor, size: 60.0),
+                                      color: UIData.whiteText, size: 70.0),
                                   decoration: BoxDecoration(
                                     boxShadow: <BoxShadow>[
                                       BoxShadow(
-                                        color: Colors.black,
-                                        offset: Offset(5.0, 20.0),
-                                        blurRadius: 120.0,
+                                        color: Colors.black.withOpacity(0.2),
+                                        offset: Offset(0.0, 20.0),
+                                        blurRadius: 30.0,
                                       ),
                                     ],
                                   ),
@@ -248,10 +161,10 @@ class _LoginViewState extends State<LoginView> {
                                 new Text(
                                   "Invitado",
                                   style: new TextStyle(
-                                      fontSize: 12.0,
-                                      color: bottomTextColor,
-                                      fontWeight: FontWeight.w200,
-                                      fontFamily: "Roboto"),
+                                    fontSize: 20.0,
+                                    color: UIData.whiteText,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 )
                               ])
                         ]),

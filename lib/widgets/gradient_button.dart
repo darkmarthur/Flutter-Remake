@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:chedraui_flutter/utils/ui_data.dart';
 
 class GradientButton extends StatelessWidget {
+  
   final GestureTapCallback onPressed;
   final String text;
 
@@ -11,17 +12,19 @@ class GradientButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       elevation: 10.0,
-      color: Colors.transparent,
+      // color: Colors.transparent,
       shape: const StadiumBorder(),
       child: InkWell(
         onTap: onPressed,
-        splashColor: Colors.yellow,
+        splashColor: UIData.btnSplashColor,
         child: Ink(
           height: 50.0,
           decoration: ShapeDecoration(
               shape: const StadiumBorder(),
               gradient: LinearGradient(
-                colors: UIData.kitGradients,
+                begin: Alignment.bottomCenter,
+                end: Alignment.topCenter,
+                colors: UIData.btnGradient,
               )),
           child: Center(
             child: Text(
@@ -29,8 +32,8 @@ class GradientButton extends StatelessWidget {
               textAlign: TextAlign.center,
               style: TextStyle(
                   color: Colors.white,
-                  fontWeight: FontWeight.normal,
-                  fontSize: 20.0),
+                  fontWeight: FontWeight.w600,
+                  fontSize: 30.0),
             ),
           ),
         ),

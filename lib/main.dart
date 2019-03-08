@@ -12,14 +12,20 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: UIData.appName,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-        fontFamily: 'Raleway'
+        brightness: Brightness.light,
+        primaryColor: UIData.chedrauiColor,
+        accentColor: UIData.chedrauiColor,
+        hintColor: UIData.chedrauiColor,
+        fontFamily: 'Raleway',
+        textTheme: TextTheme(
+          headline: TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),
+          title: TextStyle(fontSize: 36.0, fontStyle: FontStyle.italic),
+          body1: TextStyle(fontSize: 14.0, fontFamily: 'Hind'),
+        ),
       ),
-      // home: LoginPage(),
       home: LoginView(),
       routes: <String, WidgetBuilder>{
         UIData.loginOneRoute: (BuildContext context) => LoginView(),
-        // UIData.homeRoute: (BuildContext context) => HomePage(),
       },
     );
   }
