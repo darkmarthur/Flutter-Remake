@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:chedraui_flutter/utils/HexValueConverter.dart';
 import 'package:chedraui_flutter/utils/ui_data.dart';
 import 'package:chedraui_flutter/widgets/logo_widget.dart';
 import 'package:chedraui_flutter/widgets/gradient_button.dart';
@@ -14,7 +13,7 @@ class LoginView extends StatefulWidget {
 }
 
 class _LoginViewState extends State<LoginView> {
-  // row flex sizes
+  //          Row flex sizes
   final _rowLogo = 4;
   final _rowTextFieldUser = 1;
   final _rowTextFieldsPass = 1;
@@ -203,3 +202,10 @@ class CustomClip extends CustomClipper<Path> {
     return false;
   }
 }
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////
+

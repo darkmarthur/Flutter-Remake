@@ -23,10 +23,73 @@ class MyApp extends StatelessWidget {
           body1: TextStyle(fontSize: 14.0, fontFamily: 'Hind'),
         ),
       ),
-      home: LoginView(),
+      home: MyHomePage(),
+      // home: LoginView(),
       routes: <String, WidgetBuilder>{
         UIData.loginOneRoute: (BuildContext context) => LoginView(),
       },
+    );
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+  // final Widget child;
+
+  // MyHomePage({Key key, this.child}) : super(key: key);
+
+  _MyHomePageState createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  var _textController = new TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("home"),
+      ),
+      body: ListView(
+        children: <Widget>[
+          ListTile(
+            title: TextField(
+              controller: _textController,
+            ),
+          ),
+          ListTile(
+            title: RaisedButton(
+              child: Text("next"),
+              onPressed: () {
+                var route =
+                    new MaterialPageRoute(builder: (BuildContext context) =>
+                  new NextPage(value: _textController.text)
+                );
+                Navigator.of(context).push(route);
+              },
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class NextPage extends StatefulWidget {
+  final String value;
+  NextPage({Key key, this.value}) : super(key: key);
+
+  @override
+  _NextPageState createState() => _NextPageState();
+}
+
+class _NextPageState extends State<NextPage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Next Page"),
+      ),
+      body: Text("${widget.value}"),
     );
   }
 }
