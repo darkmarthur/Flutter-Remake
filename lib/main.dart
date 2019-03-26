@@ -60,15 +60,40 @@ class _MyHomePageState extends State<MyHomePage> {
             title: RaisedButton(
               child: Text("next"),
               onPressed: () {
-                var route =
-                    new MaterialPageRoute(builder: (BuildContext context) =>
-                  new NextPage(value: _textController.text)
-                );
+                var route = new MaterialPageRoute(
+                    builder: (BuildContext context) =>
+                        new NextPage(value: _textController.text));
                 Navigator.of(context).push(route);
               },
             ),
           )
         ],
+      ),
+      bottomNavigationBar: BottomAppBar(
+        child: Row(
+          children: <Widget>[
+            IconButton(
+              icon: Icon(Icons.store_mall_directory),
+              onPressed: () {},
+            ),
+            IconButton(
+              icon: Icon(Icons.list),
+              onPressed: () {},
+            ),
+            IconButton(
+              icon: Icon(Icons.account_balance_wallet),
+              onPressed: () {},
+            ),
+            IconButton(
+              icon: Icon(Icons.shopping_cart),
+              onPressed: () {},
+            ),
+            IconButton(
+              icon: Icon(Icons.face),
+              onPressed: () {},
+            ),
+          ],
+        ),
       ),
     );
   }
